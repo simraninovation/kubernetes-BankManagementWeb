@@ -1,0 +1,91 @@
+<!-- Grey with black text
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">myBank</a>
+            </li>
+            <li class="nav-item">
+            
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link" routerLink="/signup">Sign Up</a>  
+            </li>
+        </ul>
+    </div>
+</div>
+</nav> -->
+
+
+
+
+
+
+<div class ="bootstrap-wrapper">
+    <div class="container">
+        <div class ="row" style ="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+            
+              
+                <div class ="logo-container text-center">
+                    <img src ="../../../assets/signuplogo.jpg" alt=""/>
+                </div>
+                    <h1 class="text-center">Login Here!!</h1>
+                    
+                        <!--username field-->
+                        <div class ="container" style ="margin-left: 115px;">
+
+                        <form [formGroup]="loginForm" (ngSubmit)="formSubmit()">
+                            <!-- this form group can be the error -->
+                            <div fxFlex fxLayout="column">
+                                <mat-form-field appearance="fill" fxFlex class="full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput formControlName="email" required>
+                                    <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                                    <span *ngIf="loginForm.controls.email.errors.required"> This field is Mandatory</span>
+                                    <span *ngIf="loginForm.controls.email.errors.pattern"> This field is Invalid</span>
+                                </mat-error>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field appearance="fill" fxFlex class="full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput formControlName="password" type="password" required [type]="hide ? 'password' : 'text'">
+                                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>
+                                            {{hide ? 'visibility_off':'visibility'}}
+                                        </mat-icon>
+                                    </button>
+                                    <mat-error
+                                        *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                                    <span *ngIf="loginForm.controls.password.errors.required"> This field is Mandatory</span>
+                                </mat-error>
+                                   </mat-form-field>
+                                   
+                      </div>
+                        </form>
+                      
+                                <br>
+
+                                <div class="container text-center">
+                                <button style="margin-right:110px" mat-raised-button color="primary" (click)="formSubmit()">Login</button>
+                                <button style="margin-right:120px" mat-raised-button color="primary">Clear</button>
+                                <br>
+                                <br>                          
+                                <button style="margin-right:110px" mat-raised-button color="primary" (click)="signUp()" >SignUp</button>
+                                </div>
+        
+
+                
+                <!--</mat-card>-->
+                
+                
+                </div>
+            </div> 
+        </div>
+
+    </div>
+
